@@ -114,7 +114,7 @@ exports.deleteBlog = async (req, res) => {
 exports.getAllBlogs = async (req, res) => {
 
     try {
-        const blogs = await Blog.find();
+        const blogs = await Blog.find();//we are finding every article in the db
 
         if (blogs && blogs.length > 0) {
             return res.status(200).json({

@@ -9,7 +9,8 @@ const BlogSchema = new Schema({
         required: true 
     },
     author: { 
-        type: String, 
+        type: mongoose.Types.ObjectId, 
+        ref: 'User' 
     },
     body: { 
         type: String, 
@@ -34,7 +35,9 @@ const UserSchema = new Schema({
         lowercase: true,
         trim: true,
     },
-  
+    blogs: {
+        type: [BlogSchema]
+    }
 });
 
 UserSchema.plugin(passportLocalMongoose);

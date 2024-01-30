@@ -36,7 +36,7 @@ passport.use(new LocalStrategy(User.authenticate()));
 
 router.route('/login').post(passport.authenticate('local', { failureFlash: true }), authenticationController.login);
 router.route('/register').post(authenticationController.register);
-router.route('/profile').get(passport.authenticate('jwt', { session: false }), authenticationController.profile)
+//router.route('/profile').get(passport.authenticate('jwt', { session: false }), authenticationController.profile)
 
 
 module.exports=router

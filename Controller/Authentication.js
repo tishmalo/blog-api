@@ -1,7 +1,6 @@
 const { User } = require('../Model/model');
 const config = require('../config/config');
 const jwt = require('jwt-simple');
-const bcrypt = require('bcrypt')
 
 
 exports.login = async function (req, res) {
@@ -18,7 +17,7 @@ exports.login = async function (req, res) {
         // If authentication is successful, generate a token
         var payload = {
             id: user._id,
-            expire: Date.now() + 1000 * 60 * 60 * 24 * 7
+            expire: Date.now() + 1000 * 60 * 60 * 24 * 6
         };
 
         var token = jwt.encode(payload, config.jwtSecret);
